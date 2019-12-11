@@ -4,16 +4,16 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "busCompany")
-public class Buscompany {
+public class Buscompany implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Valid
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int companyId;
-
     @Valid
     @NotNull
     private String companyName;
@@ -23,5 +23,4 @@ public class Buscompany {
 
     @Valid
     private String size;
-
 }
